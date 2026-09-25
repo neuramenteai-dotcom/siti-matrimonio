@@ -672,6 +672,14 @@ const programma = () => $$('#prog .prog-row').map(r=>{
   return (o.value||t.value) ? `${o.value} ${t.value}`.trim() : '';
 }).filter(Boolean);
 
+/* partner: codice arrivato con il link ?p=CODICE, ricordato per 6 mesi.
+   Non si vede nella pagina: finisce solo nella mail d'ordine e nel pagamento Stripe. */
+(function(){try{var p=new URLSearchParams(location.search).get('p');
+if(p){p=p.toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,30);
+if(p)localStorage.setItem('sm_partner',JSON.stringify({c:p,t:Date.now()}));}}catch(e){}})();
+function codicePartner(){try{var o=JSON.parse(localStorage.getItem('sm_partner')||'null');
+if(o&&Date.now()-o.t<180*864e5)return o.c;}catch(e){}return '';}
+
 function dati(){
   return {
     sposa: val('#sposa'), sposo: val('#sposo'),
@@ -700,7 +708,8 @@ function dati(){
     } : null,
     lista_nozze: val('#lista-testo'), lista_dati: val('#lista-dati'),
     voci: attivi().map(v=>v.nome),
-    totale: totale()
+    totale: totale(),
+    partner: codicePartner()
   };
 }
 
@@ -729,6 +738,7 @@ function testo(d){
   if(pieni.length){ r.push(''); pieni.forEach(([k,v])=>r.push(`${k}: ${v}`)); }
   if(d.rsvp){ r.push(''); r.push(`Conferme entro: ${d.rsvp.entro||'da definire'}`);
               r.push(`Da chiedere: ${d.rsvp.chiedere.join(', ')}`); }
+  if(d.partner){ r.push(''); r.push(`Partner: ${d.partner}`); }
   return r.join('\n');
 }
 
@@ -748,7 +758,7 @@ function mostraPagamento(d){
                 .toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,60);
   const u = new URL(STRIPE_LINK);
   if(d.email) u.searchParams.set('prefilled_email', d.email);
-  u.searchParams.set('client_reference_id', rif);
+  u.searchParams.set('client_reference_id', (d.partner ? d.partner + '__' : '') + rif);
   $('#pay-btn').href = u.toString();
   $('#pay-tot').textContent = d.totale;
   $('#pay-tot2').textContent = d.totale;

@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Partner — Inviti digitali e album con QR</title>
+<meta name="description" content="Per wedding planner e fotografi: consigliate i nostri inviti digitali con album QR alle vostre coppie e ricevete il 15% su ogni ordine.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F2; --ink:#2B2621; --soft:#6B6158; --line:#E6DDCC;
+  --accent:#B89355; --shade:#F3EADA; --dark:#1a140f; --gold:#E9D3A6;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --body:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.kicker{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+em{font-style:italic;color:var(--accent)}
+
+/* ---------- COPERTINA ---------- */
+.hero{background:var(--dark);color:#F7F1E6;padding:clamp(64px,12vw,120px) 0 clamp(56px,10vw,100px)}
+.hero .wrap{display:grid;gap:48px;align-items:center}
+.hero .kicker{color:var(--gold)}
+.hero h1{font-size:clamp(2.5rem,8.5vw,4.4rem);font-weight:300;text-wrap:balance}
+.hero h1 em{color:var(--gold)}
+.hero p{font-size:1.04rem;color:rgba(247,241,230,.86);max-width:46ch;margin:22px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-block;padding:17px 26px;text-decoration:none;text-align:center;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;font-family:var(--body)}
+.hero .btn{border-color:rgba(247,241,230,.55);color:#F7F1E6}
+.btn.solid,.hero .btn.solid{background:var(--gold);border-color:var(--gold);color:var(--dark);font-weight:400}
+.conto{border:1px solid rgba(233,211,166,.3);padding:28px 26px;max-width:420px}
+.conto h3{font-size:1.5rem;font-weight:300;margin-bottom:14px}
+.riga{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-top:1px solid rgba(233,211,166,.2);font-size:.95rem;color:rgba(247,241,230,.85)}
+.riga b{font-family:var(--display);font-weight:400;font-size:1.55rem;color:var(--gold)}
+.conto small{display:block;margin-top:14px;font-size:.78rem;color:rgba(247,241,230,.6)}
+@media(min-width:880px){.hero .wrap{grid-template-columns:1.25fr 1fr}.conto{justify-self:end}}
+
+/* ---------- SEZIONI ---------- */
+.sec{padding:clamp(56px,10vw,96px) 0;border-bottom:1px solid var(--line)}
+.sec h2{font-size:clamp(2rem,6vw,2.9rem);font-weight:300;text-wrap:balance;max-width:20ch}
+.sec .intro{color:var(--soft);max-width:52ch;margin:16px 0 0}
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+.cella{background:var(--paper);padding:28px 24px}
+.cella .n{font-family:var(--display);font-size:1.1rem;color:var(--accent)}
+.cella h3{font-size:1.45rem;margin:6px 0 8px}
+.cella p{margin:0;font-size:.94rem;color:var(--soft)}
+@media(min-width:720px){.grid.tre{grid-template-columns:repeat(3,1fr)}.grid.quattro{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.grid.quattro{grid-template-columns:repeat(4,1fr)}}
+
+/* firma del fotografo */
+.firma{display:grid;gap:40px;align-items:center;margin-top:40px}
+@media(min-width:820px){.firma{grid-template-columns:1fr 1fr}}
+.telefono{width:min(300px,78vw);margin:0 auto;border-radius:34px;background:#111;padding:9px;box-shadow:0 40px 70px -34px rgba(43,38,33,.6)}
+.schermo{border-radius:26px;overflow:hidden;background:var(--paper)}
+.schermo .testa{background:linear-gradient(rgba(30,24,18,.35),rgba(30,24,18,.65)),url('https://neuramenteai-dotcom.github.io/demo-album/foto/copertina.jpg') center 35%/cover;color:#fff;text-align:center;padding:34px 12px 26px}
+.schermo .testa b{display:block;font-family:var(--display);font-weight:400;font-size:1.6rem}
+.schermo .testa span{font-size:.6rem;letter-spacing:.24em}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:10px}
+.mini i{aspect-ratio:1;background:var(--shade) center/cover}
+.schermo .piede{border-top:1px solid var(--line);text-align:center;padding:14px 10px 18px;font-size:.72rem;color:var(--soft)}
+.schermo .piede u{text-decoration:none;display:block;margin-top:3px;font-family:var(--display);font-size:1.05rem;color:var(--ink);border:1px solid var(--accent);padding:6px 10px;border-radius:2px}
+.firma ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.firma li{padding-left:24px;position:relative;color:var(--soft)}
+.firma li::before{content:"\2726";position:absolute;left:0;color:var(--accent);font-size:.75rem;top:.25em}
+
+/* domande */
+.faq{margin-top:34px;max-width:760px}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-family:var(--display);font-size:1.35rem;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--soft);margin:10px 0 0;max-width:60ch}
+
+/* modulo */
+.modulo{background:var(--shade)}
+form{display:grid;gap:16px;margin-top:34px;max-width:640px}
+@media(min-width:600px){.due{display:grid;grid-template-columns:1fr 1fr;gap:16px}}
+label{display:block;font-size:.84rem;color:var(--soft);margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:2px;padding:13px 14px}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+textarea{min-height:96px;resize:vertical}
+.err{border-color:#C0714E}
+.msg{display:none;font-size:.95rem;padding:14px 16px;border:1px solid var(--line);background:#fff}
+.msg.show{display:block}
+.piede-pag{text-align:center;padding:28px 24px;font-size:.78rem;color:var(--soft)}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Per wedding planner e fotografi</p>
+      <h1>Consigliateci alle vostre coppie. <em>Il 15% &egrave; vostro.</em></h1>
+      <p>Creiamo l'invito digitale degli sposi e, il giorno delle nozze, l'album dove gli ospiti caricano le foto con un QR. Per ogni coppia che arriva da voi ricevete il 15% di quello che paga. Voi fate il nome, al resto pensiamo noi.</p>
+      <div class="cta">
+        <a class="btn solid" href="#diventa-partner">Diventate partner</a>
+        <a class="btn" href="index.html" target="_blank" rel="noopener">Guardate cosa ricevono gli sposi</a>
+      </div>
+    </div>
+    <div class="conto" aria-label="Esempi di commissione">
+      <h3>Quanto vi arriva</h3>
+      <div class="riga"><span>Invito e album, pacchetto base</span><b>22,50 &euro;</b></div>
+      <div class="riga"><span>Con gestione invitati e spazio foto</span><b>37,50 &euro;</b></div>
+      <div class="riga"><span>Tutto incluso</span><b>51,00 &euro;</b></div>
+      <small>Il 15% del totale pagato dalla coppia, extra compresi. Bonifico ogni mese.</small>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="kicker">Come funziona</p>
+    <h2>Quattro passi, <em>nessuna gestione</em> da parte vostra</h2>
+    <div class="grid quattro">
+      <div class="cella"><span class="n">1</span><h3>Vi iscrivete</h3><p>Compilate il modulo qui sotto. Vi rispondiamo entro 48 ore.</p></div>
+      <div class="cella"><span class="n">2</span><h3>Ricevete il vostro link</h3><p>Un link e un codice personali da girare alle coppie, su WhatsApp, via mail o nel vostro preventivo.</p></div>
+      <div class="cella"><span class="n">3</span><h3>La coppia ordina</h3><p>Il link si ricorda di voi per sei mesi, anche se gli sposi ordinano settimane dopo. Seguiamo noi la coppia, dall'invito all'album.</p></div>
+      <div class="cella"><span class="n">4</span><h3>Vi paghiamo</h3><p>Bonifico ogni mese per gli ordini pagati da almeno 14 giorni, con il riepilogo delle coppie arrivate da voi.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="kicker">Per i fotografi</p>
+    <h2>La vostra firma <em>davanti a tutti gli ospiti</em></h2>
+    <div class="firma">
+      <div>
+        <p class="intro">L'album degli ospiti non fa concorrenza al vostro lavoro: raccoglie gli scatti dal telefono, voi restate le foto ufficiali. E per le coppie arrivate da voi lo diciamo in fondo all'album, con il link al vostro sito.</p>
+        <ul>
+          <li>Ogni invitato che carica una foto vede il vostro nome.</li>
+          <li>Il link porta al vostro sito o al vostro profilo Instagram.</li>
+          <li>Resta visibile per tutto l'anno in cui l'album &egrave; online.</li>
+        </ul>
+      </div>
+      <div class="telefono" aria-hidden="true">
+        <div class="schermo">
+          <div class="testa"><span>L'ALBUM DI TUTTI</span><b>Giulia &amp; Matteo</b></div>
+          <div class="mini">
+            <i style="background-image:url('https://neuramenteai-dotcom.github.io/demo-album/foto/ospite-1.jpg')"></i>
+            <i style="background-image:url('https://neuramenteai-dotcom.github.io/demo-album/foto/ospite-2.jpg')"></i>
+            <i style="background-image:url('https://neuramenteai-dotcom.github.io/demo-album/foto/ospite-6.jpg')"></i>
+            <i style="background-image:url('https://neuramenteai-dotcom.github.io/demo-album/foto/ospite-7.jpg')"></i>
+            <i style="background-image:url('https://neuramenteai-dotcom.github.io/demo-album/foto/ospite-9.jpg')"></i>
+            <i style="background-image:url('https://neuramenteai-dotcom.github.io/demo-album/foto/ospite-8.jpg')"></i>
+          </div>
+          <div class="piede">Foto ufficiali di<u>Il vostro studio &rarr;</u></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <p class="kicker">Domande</p>
+    <h2>Quello che ci chiedono <em>pi&ugrave; spesso</em></h2>
+    <div class="faq">
+      <details><summary>Le coppie pagano di pi&ugrave; se arrivano da me?</summary><p>No. Il prezzo &egrave; lo stesso per tutti: la vostra commissione la paghiamo noi.</p></details>
+      <details><summary>Devo seguire io la coppia?</summary><p>No. Raccogliamo noi testi, foto e scelte grafiche, consegniamo l'invito e prepariamo l'album. Se volete, vi teniamo in copia.</p></details>
+      <details><summary>Come so quante coppie sono arrivate da me?</summary><p>Ogni mese vi mandiamo il riepilogo con nomi, data delle nozze e importo, insieme al bonifico.</p></details>
+      <details><summary>Serve la partita IVA?</summary><p>Con la partita IVA ci mandate fattura. Senza, di solito basta una ricevuta per prestazione occasionale: verificate con il vostro commercialista.</p></details>
+      <details><summary>C'&egrave; un minimo di coppie da portare?</summary><p>No. Nessun vincolo, nessun costo di iscrizione.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec modulo" id="diventa-partner">
+  <div class="wrap">
+    <p class="kicker">Diventate partner</p>
+    <h2>Due minuti, <em>poi pensiamo a tutto noi</em></h2>
+    <p class="intro">Vi rispondiamo entro 48 ore con il vostro link, il codice e il materiale da girare alle coppie.</p>
+    <form id="form" novalidate>
+      <div class="due">
+        <div><label for="nome">Nome e cognome</label><input id="nome" autocomplete="name"></div>
+        <div><label for="attivita">Nome dell'attivit&agrave;</label><input id="attivita" autocomplete="organization"></div>
+      </div>
+      <div class="due">
+        <div><label for="ruolo">Siete</label>
+          <select id="ruolo"><option>Wedding planner</option><option>Fotografo o videomaker</option><option>Location o villa</option><option>Fiorista o allestimenti</option><option>Altro</option></select></div>
+        <div><label for="citta">Dove lavorate</label><input id="citta" placeholder="Citt&agrave; o regione"></div>
+      </div>
+      <div class="due">
+        <div><label for="email">Email</label><input id="email" type="email" autocomplete="email"></div>
+        <div><label for="tel">Telefono</label><input id="tel" type="tel" autocomplete="tel"></div>
+      </div>
+      <div><label for="sito">Sito o Instagram</label><input id="sito" placeholder="https://… oppure @profilo"></div>
+      <div><label for="note">Quante coppie seguite in un anno, pi&ugrave; o meno? (facoltativo)</label><textarea id="note"></textarea></div>
+      <button class="btn solid" type="submit">Invia la richiesta</button>
+      <p class="msg" id="msg"></p>
+    </form>
+  </div>
+</section>
+
+<p class="piede-pag">Fatto a mano, una coppia alla volta.</p>
+
+<script>
+/* dove arrivano le iscrizioni */
+const EMAIL_PARTNER = 'neuramente.ai@gmail.com';
+
+const $ = s => document.querySelector(s);
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const obbligatori = ['#nome', '#email', '#tel'];
+  let ok = true;
+  obbligatori.forEach(s => { const v = $(s).value.trim(); $(s).classList.toggle('err', !v); if (!v) ok = false; });
+  const m = $('#msg');
+  if (!ok) { m.textContent = 'Mancano nome, email o telefono.'; m.classList.add('show'); return; }
+  const v = s => $(s).value.trim();
+  const corpo = [
+    'RICHIESTA PARTNER',
+    '',
+    'Nome: ' + v('#nome'),
+    'Attività: ' + v('#attivita'),
+    'Ruolo: ' + v('#ruolo'),
+    'Zona: ' + v('#citta'),
+    'Email: ' + v('#email'),
+    'Telefono: ' + v('#tel'),
+    'Sito/Instagram: ' + v('#sito'),
+    'Coppie all\'anno: ' + v('#note')
+  ].join('\n');
+  window.location.href = 'mailto:' + EMAIL_PARTNER + '?subject=' + encodeURIComponent('Nuovo partner — ' + (v('#attivita') || v('#nome'))) + '&body=' + encodeURIComponent(corpo);
+  m.textContent = 'Si apre il vostro programma di posta con tutto già scritto: basta premere invia.';
+  m.classList.add('show');
+});
+</script>
+</body>
+</html>
