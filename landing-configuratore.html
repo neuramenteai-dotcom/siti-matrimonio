@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Il vostro matrimonio online — invito digitale e album condiviso</title>
-<meta name="description" content="Un invito digitale e un album fotografico condiviso con QR code per il vostro matrimonio. Da 150 €, pronto in una settimana.">
+<meta name="description" content="Un invito digitale e un album fotografico condiviso con QR code per il vostro matrimonio. Da 190 €, pronto in una settimana.">
 <meta property="og:title" content="Il vostro matrimonio online — invito digitale e album condiviso">
-<meta property="og:description" content="Un invito digitale e un album fotografico condiviso con QR code. Da 150 €, pronto in una settimana.">
+<meta property="og:description" content="Un invito digitale e un album fotografico condiviso con QR code. Da 190 €, pronto in una settimana.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -170,6 +170,9 @@ body[data-tpl="Minimal"] .hero h1 em{font-style:normal}
 .opt:has(input:checked)::after{transform:rotate(45deg) scale(1)}
 .opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
 .opt:has(input:focus-visible){box-shadow:0 0 0 3px var(--accent-soft)}
+.opt.pack::before{border-radius:50%}
+.opt.pack::after{left:21px;top:24px;width:9px;height:9px;border:0;border-radius:50%;background:#fff;transform:scale(0)}
+.opt.pack:has(input:checked)::after{transform:scale(1)}
 .opt.fixed{border-color:var(--ink);cursor:default;padding-left:18px}
 .opt.fixed::before,.opt.fixed::after{display:none}
 .opt-top{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
@@ -228,7 +231,7 @@ footer .mark{margin:0 0 14px}
     <span class="mark">✦</span>
     <p class="lead">Una pagina con il vostro invito, il programma della giornata e un QR code che raccoglie le foto scattate dai vostri ospiti. Tutto in un posto solo, vostro.</p>
     <p class="no-app">I vostri ospiti non installano nessuna app: inquadrano il QR e caricano.</p>
-    <p class="price-from">da 150 €<span>pronto in una settimana</span></p>
+    <p class="price-from">da 190 €<span>pronto in una settimana</span></p>
   </div>
 </header>
 
@@ -384,11 +387,7 @@ footer .mark{margin:0 0 14px}
   <section class="sec" id="s6">
     <div class="sec-head"><span class="sec-n">VI</span><h2>Le vostre foto</h2><span class="tag">facoltativo</span></div>
     <p class="sec-note">Non caricatele qui. Dopo la conferma dell'ordine ricevete un link dedicato dove trascinarle tutte insieme: serve una foto di copertina e da tre a sei per la galleria di apertura.</p>
-    <label class="opt">
-      <input type="checkbox" data-extra="spazio" id="x-spazio">
-      <span class="opt-top"><span class="opt-name">Spazio foto ampliato</span><span class="opt-price">+ 50 €</span></span>
-      <span class="opt-desc">L'album di base regge circa mille foto. Con lo spazio ampliato salite a diverse migliaia e si possono caricare anche i video. Consigliato sopra i cento invitati.</span>
-    </label>
+    <p class="sec-note" style="margin-bottom:0">L'album regge circa mille foto. Con il pacchetto Completo lo spazio &egrave; ampliato: diverse migliaia di foto e anche i video.</p>
   </section>
 
   <section class="sec" id="s7">
@@ -413,14 +412,10 @@ footer .mark{margin:0 0 14px}
 
   <section class="sec" id="s9">
     <div class="sec-head"><span class="sec-n">IX</span><h2>La conferma di presenza</h2><span class="tag">facoltativo</span></div>
-    <p class="sec-note">Gli ospiti confermano dalla pagina e voi ricevete la lista aggiornata a ogni risposta.</p>
-    <label class="opt">
-      <input type="checkbox" data-extra="invitati" id="x-invitati">
-      <span class="opt-top"><span class="opt-name">Gestione invitati</span><span class="opt-price">+ 50 €</span></span>
-      <span class="opt-desc">Modulo di conferma sulla pagina, notifica a ogni iscrizione e un foglio scaricabile sempre aggiornato con nomi, accompagnatori e intolleranze.</span>
-    </label>
+    <p class="sec-note">Gli ospiti confermano dalla pagina con nome e numero di persone, e voi ricevete la lista aggiornata. Con il pacchetto <b>Completo</b> chiediamo anche intolleranze, bambini e navetta, e avete un foglio scaricabile sempre aggiornato.</p>
+    <div class="field"><label for="rsvp-data">Entro quando devono rispondere</label><input type="date" id="rsvp-data"></div>
     <div class="reveal" id="rev-invitati">
-      <div class="field"><label>Cosa chiediamo agli ospiti oltre al nome</label>
+      <div class="field"><label>Cosa chiediamo agli ospiti oltre al nome (pacchetto Completo)</label>
         <div class="choices">
           <label class="choice check"><input type="checkbox" id="q-intolleranze" checked><span class="t-name" style="font-size:1.05rem">Intolleranze e allergie</span></label>
           <label class="choice check"><input type="checkbox" id="q-accomp" checked><span class="t-name" style="font-size:1.05rem">Numero di accompagnatori</span></label>
@@ -428,7 +423,6 @@ footer .mark{margin:0 0 14px}
           <label class="choice check"><input type="checkbox" id="q-navetta"><span class="t-name" style="font-size:1.05rem">Serve la navetta</span></label>
         </div>
       </div>
-      <div class="field"><label for="rsvp-data">Entro quando devono rispondere</label><input type="date" id="rsvp-data"></div>
     </div>
   </section>
 
@@ -441,28 +435,31 @@ footer .mark{margin:0 0 14px}
 
   <section class="sec" id="s11">
     <div class="sec-head"><span class="sec-n">XI</span><h2>Il vostro pacchetto</h2></div>
-    <p class="sec-note">Il pacchetto base comprende l'invito, l'album con QR e i cartoncini da stampare. Da qui aggiungete quello che vi serve.</p>
+    <p class="sec-note">Scegliete il pacchetto, poi aggiungete solo se vi serve.</p>
 
-    <span class="opt fixed">
-      <span class="opt-top"><span class="opt-name">Pacchetto base</span><span class="opt-price">150 €</span></span>
-      <span class="opt-desc">Invito digitale, album fotografico con QR code, file dei cartoncini da stampare, indirizzo online incluso per un anno. Sempre compreso.</span>
-    </span>
-
-    <label class="opt">
-      <input type="checkbox" data-extra="dominio" id="x-dominio">
-      <span class="opt-top"><span class="opt-name">Indirizzo personalizzato</span><span class="opt-price">+ 25 €</span></span>
-      <span class="opt-desc">Un dominio tutto vostro, tipo giuliaematteo.it, invece dell'indirizzo standard. Registrazione e primo anno compresi.</span>
+    <label class="opt pack">
+      <input type="radio" name="pacchetto" value="essenziale" checked>
+      <span class="opt-top"><span class="opt-name">Essenziale</span><span class="opt-price">190 €</span></span>
+      <span class="opt-desc">Invito digitale con conferma di presenza, album fotografico con QR code, file dei cartoncini da stampare, indirizzo online incluso per un anno.</span>
     </label>
+
+    <label class="opt pack">
+      <input type="radio" name="pacchetto" value="completo">
+      <span class="opt-top"><span class="opt-name">Completo</span><span class="opt-price">290 €</span></span>
+      <span class="opt-desc">Tutto l'Essenziale, pi&ugrave; gestione invitati completa (intolleranze, bambini, navetta, foglio scaricabile), spazio foto ampliato con i video e un indirizzo tutto vostro, tipo giuliaematteo.it.</span>
+    </label>
+
+    <p class="sec-note" style="margin:26px 0 12px">In aggiunta</p>
 
     <label class="opt">
       <input type="checkbox" data-extra="urgenza" id="x-urgenza">
       <span class="opt-top"><span class="opt-name">Consegna in due giorni</span><span class="opt-price">+ 50 €</span></span>
-      <span class="opt-desc">La consegna normale è di una settimana da quando riceviamo foto e testi. Con questa opzione la pagina è online in due giorni lavorativi.</span>
+      <span class="opt-desc">La consegna normale &egrave; di una settimana da quando riceviamo foto e testi. Con questa opzione la pagina &egrave; online in due giorni lavorativi.</span>
     </label>
 
     <label class="opt">
       <input type="checkbox" data-extra="collage" id="x-collage">
-      <span class="opt-top"><span class="opt-name">Video ricordo</span><span class="opt-price">+ 15 €</span></span>
+      <span class="opt-top"><span class="opt-name">Video ricordo</span><span class="opt-price">+ 30 €</span></span>
       <span class="opt-desc">Dopo il matrimonio montiamo le foto caricate dagli ospiti in un breve video da condividere. Scegliete voi quali tenere.</span>
     </label>
 
@@ -474,8 +471,8 @@ footer .mark{margin:0 0 14px}
       <div class="msg" id="msg"></div>
       <div class="pay" id="pay">
         <h4>Pagamento</h4>
-        <a class="pay-btn" id="pay-btn" href="#" target="_blank" rel="noopener">Paga <span id="pay-tot">150</span> € con carta</a>
-        <p class="pay-note">Pagamento sicuro su Stripe, in una nuova scheda. Nella pagina di Stripe inserite l'importo di <b><span id="pay-tot2">150</span> €</b>.</p>
+        <a class="pay-btn" id="pay-btn" href="#" target="_blank" rel="noopener">Paga <span id="pay-tot">190</span> € con carta</a>
+        <p class="pay-note">Pagamento sicuro su Stripe, in una nuova scheda. Nella pagina di Stripe inserite l'importo di <b><span id="pay-tot2">190</span> €</b>.</p>
       </div>
     </div>
   </section>
@@ -526,10 +523,10 @@ footer .mark{margin:0 0 14px}
   <div class="bar-in">
     <div>
       <div class="bar-lab">Totale</div>
-      <div class="bar-sub" id="bar-sub">Pacchetto base</div>
+      <div class="bar-sub" id="bar-sub">Essenziale</div>
     </div>
     <div style="display:flex;align-items:center;gap:16px">
-      <div class="bar-tot"><span id="tot">150</span> €</div>
+      <div class="bar-tot"><span id="tot">190</span> €</div>
       <button class="bar-cta" type="button" id="bar-cta">Riepilogo</button>
     </div>
   </div>
@@ -542,18 +539,16 @@ footer .mark{margin:0 0 14px}
 const EMAIL_ORDINI = 'neuramente.ai@gmail.com';   // dove arrivano le richieste
 
 // Payment Link di Stripe del prodotto "Sito matrimonio" con prezzo
-// "Il cliente sceglie il prezzo" (minimo 150 €, suggerito 150 €).
+// "Il cliente sceglie il prezzo" (minimo 190 €, suggerito 190 €, massimo 370 €).
 // Stripe NON accetta la quantità nell'indirizzo: il cliente inserisce
 // il totale che la pagina gli mostra. Vuoto = niente bottone di pagamento.
 const STRIPE_LINK = 'https://buy.stripe.com/00wfZb2FW7wV30ka8X3Ru03';
 
 const PREZZI = {
-  base:     { nome:'Pacchetto base',           prezzo:150 },
-  spazio:   { nome:'Spazio foto ampliato',     prezzo:50  },
-  dominio:  { nome:'Indirizzo personalizzato', prezzo:25  },
-  invitati: { nome:'Gestione invitati',        prezzo:50  },
-  urgenza:  { nome:'Consegna in due giorni',   prezzo:50  },
-  collage:  { nome:'Video ricordo',            prezzo:15  }
+  essenziale: { nome:'Pacchetto Essenziale',   prezzo:190 },
+  completo:   { nome:'Pacchetto Completo',     prezzo:290 },
+  urgenza:    { nome:'Consegna in due giorni', prezzo:50  },
+  collage:    { nome:'Video ricordo',          prezzo:30  }
 };
 
 // Opzionale: salvataggio automatico su Supabase.
@@ -626,9 +621,10 @@ addRow('20:00','Taglio della torta');
 $('#add-prog').onclick = ()=> addRow();
 
 /* ---------- prezzo ---------- */
-let mostrato = 150;
+let mostrato = 190;
+const pacchetto = () => (document.querySelector('input[name=pacchetto]:checked')||{}).value || 'essenziale';
 function attivi(){
-  const list = [PREZZI.base];
+  const list = [PREZZI[pacchetto()]];
   $$('input[data-extra]').forEach(i=>{ if(i.checked) list.push(PREZZI[i.dataset.extra]); });
   return list;
 }
@@ -652,13 +648,14 @@ function aggiorna(){
   const list = attivi(), tot = totale();
   animaTotale(mostrato, tot);
   const n = list.length-1;
-  $('#bar-sub').textContent = n===0 ? 'Pacchetto base' : n===1 ? 'Base + 1 opzione' : 'Base + '+n+' opzioni';
+  const nomeP = pacchetto()==='completo' ? 'Completo' : 'Essenziale';
+  $('#bar-sub').textContent = n===0 ? nomeP : n===1 ? nomeP+' + 1 aggiunta' : nomeP+' + '+n+' aggiunte';
   $('#recap-list').innerHTML =
     list.map(v=>`<li><span>${esc(v.nome)}</span><span>${v.prezzo} €</span></li>`).join('') +
     `<li class="tot"><span>Totale</span><span>${tot} €</span></li>`;
-  $('#rev-invitati').classList.toggle('open', $('#x-invitati').checked);
+  $('#rev-invitati').classList.toggle('open', pacchetto()==='completo');
 }
-$$('input[data-extra]').forEach(i=> i.addEventListener('change', aggiorna));
+$$('input[data-extra], input[name=pacchetto]').forEach(i=> i.addEventListener('change', aggiorna));
 aggiorna();
 
 $('#bar-cta').onclick = ()=> $('#s11').scrollIntoView({behavior:'smooth'});
@@ -697,15 +694,15 @@ function dati(){
     benvenuto: val('#benvenuto'), storia: val('#storia'), invito_foto: val('#invito-foto'),
     dress_code: val('#dress'), parcheggio: val('#parcheggio'),
     hotel: val('#hotel'), navette: val('#navette'), note: val('#note'),
-    rsvp: $('#x-invitati').checked ? {
+    rsvp: {
       entro: val('#rsvp-data'),
-      chiedere: [
+      chiedere: pacchetto()!=='completo' ? ['nome e numero di persone'] : [
         $('#q-intolleranze').checked && 'intolleranze',
         $('#q-accomp').checked && 'accompagnatori',
         $('#q-bimbi').checked && 'bambini',
         $('#q-navetta').checked && 'navetta'
       ].filter(Boolean)
-    } : null,
+    },
     lista_nozze: val('#lista-testo'), lista_dati: val('#lista-dati'),
     voci: attivi().map(v=>v.nome),
     totale: totale(),
