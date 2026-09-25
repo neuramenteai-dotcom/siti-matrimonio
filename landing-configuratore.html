@@ -475,7 +475,7 @@ footer .mark{margin:0 0 14px}
       <div class="pay" id="pay">
         <h4>Pagamento</h4>
         <a class="pay-btn" id="pay-btn" href="#" target="_blank" rel="noopener">Paga <span id="pay-tot">150</span> € con carta</a>
-        <p class="pay-note">Pagamento sicuro su Stripe. Si apre in una nuova scheda.</p>
+        <p class="pay-note">Pagamento sicuro su Stripe, in una nuova scheda. Nella pagina di Stripe inserite l'importo di <b><span id="pay-tot2">150</span> €</b>.</p>
       </div>
     </div>
   </section>
@@ -541,9 +541,10 @@ footer .mark{margin:0 0 14px}
    ============================================================ */
 const EMAIL_ORDINI = 'neuramente.ai@gmail.com';   // dove arrivano le richieste
 
-// Payment Link di Stripe. Deve puntare a un prodotto da 1,00 €
-// con "quantità modificabile" attiva: l'importo è passato come quantity.
-// Lascia vuoto per non mostrare il bottone di pagamento.
+// Payment Link di Stripe del prodotto "Sito matrimonio" con prezzo
+// "Il cliente sceglie il prezzo" (minimo 150 €, suggerito 150 €).
+// Stripe NON accetta la quantità nell'indirizzo: il cliente inserisce
+// il totale che la pagina gli mostra. Vuoto = niente bottone di pagamento.
 const STRIPE_LINK = '';
 
 const PREZZI = {
@@ -746,11 +747,11 @@ function mostraPagamento(d){
   const rif = (d.sposa + '-' + d.sposo + '-' + d.data)
                 .toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,60);
   const u = new URL(STRIPE_LINK);
-  u.searchParams.set('quantity', d.totale);
   if(d.email) u.searchParams.set('prefilled_email', d.email);
   u.searchParams.set('client_reference_id', rif);
   $('#pay-btn').href = u.toString();
   $('#pay-tot').textContent = d.totale;
+  $('#pay-tot2').textContent = d.totale;
   $('#pay').classList.add('show');
   $('#pay').scrollIntoView({behavior:'smooth', block:'center'});
 }
