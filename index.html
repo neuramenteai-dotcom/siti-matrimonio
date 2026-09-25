@@ -77,6 +77,13 @@ img{max-width:100%; display:block}
   position:absolute; left:50%; bottom:0; width:1px; height:40px; display:none;
   background:linear-gradient(rgba(247,241,230,0),rgba(247,241,230,.8));
 }
+/* telefono: la foto sta in alto, il testo sotto, senza coprirla */
+@media(max-width:899px){
+  .cover{padding-top:0}
+  .cover-img{inset:0 0 auto 0; height:62%; background-position:44% 50%}
+  .cover-veil{background:linear-gradient(180deg,rgba(18,14,10,.05) 0%,rgba(18,14,10,.10) 34%,rgba(18,14,10,.82) 56%,#1a140f 64%,#1a140f 100%)}
+  .cover-in{padding-top:52vh; padding-top:52svh}
+}
 @media(min-width:560px){
   .cover .btn{flex:0 1 auto}
 }
