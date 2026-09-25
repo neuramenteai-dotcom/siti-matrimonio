@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Il vostro matrimonio online — invito digitale e album condiviso</title>
+<meta name="description" content="Un invito digitale e un album fotografico condiviso con QR code per il vostro matrimonio. Da 150 €, pronto in una settimana.">
+<meta property="og:title" content="Il vostro matrimonio online — invito digitale e album condiviso">
+<meta property="og:description" content="Un invito digitale e un album fotografico condiviso con QR code. Da 150 €, pronto in una settimana.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Parisienne&family=Marcellus&family=Poiret+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF8F2;
+  --ink:#2B2621;
+  --ink-soft:#6B6158;
+  --line:#E6DDCC;
+  --accent:#B89355;          /* cambia dal vivo con la palette scelta */
+  --accent-soft:#F3EADA;
+  --ok:#5E7A55;
+  --warn:#9E5B42;
+  --radius:2px;
+  --bar-h:78px;
+  /* carattere dei titoli: cambia dal vivo con il template scelto */
+  --display:'Cormorant Garamond',Georgia,serif;
+  --display-w:400;
+  --display-ls:0em;
+  --display-size:1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-weight:300;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px) + 16px);
+}
+h1,h2,h3,.serif{
+  font-family:var(--display);
+  font-weight:var(--display-w);
+  letter-spacing:var(--display-ls);
+  transition:font-size .35s ease;
+}
+
+/* ---------- TEMPLATE: carattere dei titoli ---------- */
+body[data-tpl="Romantico"]{--display:'Parisienne',cursive;--display-w:400;--display-ls:.005em;--display-size:1.18}
+body[data-tpl="Natura"]{--display:'Marcellus',Georgia,serif;--display-w:400;--display-ls:.012em;--display-size:.9}
+body[data-tpl="Geometrico"]{--display:'Poiret One',sans-serif;--display-w:400;--display-ls:.045em;--display-size:.88}
+body[data-tpl="Minimal"]{--display:'Jost',sans-serif;--display-w:300;--display-ls:.085em;--display-size:.78}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:clamp(56px,11vw,96px) 0 clamp(40px,7vw,64px);text-align:center}
+.hero::before,.hero::after{
+  content:"";position:absolute;width:54px;height:54px;
+  border:1px solid var(--accent);opacity:.55;transition:border-color .5s;
+}
+.hero::before{top:18px;left:18px;border-right:0;border-bottom:0}
+.hero::after{bottom:6px;right:18px;border-left:0;border-top:0}
+.eyebrow{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:26px}
+.hero h1{font-size:calc(clamp(2.5rem,8.5vw,4.1rem) * var(--display-size));line-height:1.08}
+.hero h1 em{font-style:italic;font-weight:300}
+.mark{display:block;color:var(--accent);font-size:1rem;margin:24px 0;transition:color .5s}
+.lead{font-size:1.06rem;color:var(--ink-soft);max-width:44ch;margin:0 auto}
+.no-app{margin:26px auto 0;max-width:38ch;font-size:.95rem;line-height:1.5;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0}
+.price-from{margin-top:28px;font-family:'Cormorant Garamond',serif;font-size:1.5rem}
+.price-from span{font-size:.85rem;font-family:'Jost',sans-serif;color:var(--ink-soft);display:block;letter-spacing:.06em}
+
+/* ---------- COSA RICEVETE ---------- */
+.cards{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:clamp(40px,8vw,72px) 0}
+@media(min-width:640px){.cards{grid-template-columns:1fr 1fr}.card.wide{grid-column:1 / -1}}
+.card{background:var(--paper);padding:26px 24px}
+.card h3{font-size:calc(1.45rem * var(--display-size));margin-bottom:8px}
+.card p{font-size:.95rem;color:var(--ink-soft)}
+
+/* ---------- SEZIONI ---------- */
+.sec{border-top:1px solid var(--line);padding:clamp(34px,6vw,50px) 0}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.sec-n{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--accent);transition:color .5s;min-width:1.4em}
+.sec h2{font-size:calc(clamp(1.65rem,5vw,2.1rem) * var(--display-size));line-height:1.18}
+.tag{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);padding:3px 8px;border-radius:99px}
+.tag.req{color:var(--warn);border-color:#E7CFC4}
+.sec-note{color:var(--ink-soft);font-size:.94rem;margin:2px 0 26px;max-width:54ch}
+
+/* ---------- CAMPI ---------- */
+.field{margin-bottom:18px}
+.row{display:grid;gap:18px}
+@media(min-width:560px){.row.two{grid-template-columns:1fr 1fr}}
+label{display:block;font-size:.85rem;letter-spacing:.03em;margin-bottom:6px;color:var(--ink-soft)}
+input[type=text],input[type=date],input[type=time],input[type=email],input[type=tel],textarea{
+  width:100%;font-family:inherit;font-size:1rem;font-weight:300;color:var(--ink);
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:11px 13px;transition:border-color .2s,box-shadow .2s;
+}
+textarea{resize:vertical;min-height:88px;line-height:1.55}
+input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+input.err,textarea.err{border-color:var(--warn);box-shadow:0 0 0 3px #F6E3DB}
+.hint{font-size:.82rem;color:var(--ink-soft);margin-top:6px}
+
+/* ---------- SCELTE ---------- */
+.choices{display:grid;gap:12px}
+@media(min-width:560px){.choices.t{grid-template-columns:1fr 1fr}}
+.choice{position:relative;display:block;cursor:pointer;border:1px solid var(--line);background:#fff;padding:16px 16px 16px 46px;border-radius:var(--radius);transition:border-color .2s,background .2s}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice::before{content:"";position:absolute;left:17px;top:19px;width:14px;height:14px;border:1px solid #CDBFA8;border-radius:50%}
+.choice::after{content:"";position:absolute;left:21px;top:23px;width:6px;height:6px;border-radius:50%;background:var(--accent);transform:scale(0);transition:transform .18s cubic-bezier(.3,1.5,.5,1)}
+.choice:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.choice:has(input:checked)::after{transform:scale(1)}
+.choice:has(input:focus-visible){box-shadow:0 0 0 3px var(--accent-soft)}
+.choice .t-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;display:block}
+.choice .t-desc{font-size:.88rem;color:var(--ink-soft);display:block;margin-top:2px}
+.choice .t-sample{
+  display:block;margin-top:12px;padding-top:11px;border-top:1px solid var(--line);
+  color:var(--ink);line-height:1.25;
+}
+.choice .t-sample b{display:block;font-weight:inherit}
+.choice .t-sample i{
+  display:block;font-style:normal;font-family:'Jost',sans-serif;font-weight:300;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px;
+}
+.smp-romantico b{font-family:'Parisienne',cursive;font-size:1.95rem}
+.smp-natura b{font-family:'Marcellus',Georgia,serif;font-size:1.45rem;letter-spacing:.015em}
+.smp-geometrico b{font-family:'Poiret One',sans-serif;font-size:1.4rem;letter-spacing:.09em;text-transform:uppercase}
+.smp-minimal b{font-family:'Jost',sans-serif;font-weight:300;font-size:1.18rem;letter-spacing:.2em;text-transform:uppercase}
+/* i corsivi sintetici stonano sui caratteri squadrati */
+body[data-tpl="Geometrico"] .hero h1 em,
+body[data-tpl="Minimal"] .hero h1 em{font-style:normal}
+.choice.check::before{border-radius:2px}
+.choice.check::after{border-radius:0;width:5px;height:9px;left:22px;top:21px;background:none;border:solid var(--accent);border-width:0 1.5px 1.5px 0;transform:rotate(45deg) scale(0)}
+.choice.check:has(input:checked)::after{transform:rotate(45deg) scale(1)}
+
+/* ---------- PALETTE ---------- */
+.palettes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:560px){.palettes{grid-template-columns:repeat(3,1fr)}}
+.pal{position:relative;cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:14px;text-align:center;transition:border-color .2s,transform .2s}
+.pal input{position:absolute;opacity:0;pointer-events:none}
+.pal .dots{display:flex;justify-content:center;gap:6px;margin-bottom:9px}
+.pal .dots i{width:19px;height:19px;border-radius:50%;display:block;border:1px solid rgba(0,0,0,.07)}
+.pal .p-name{font-size:.86rem}
+.pal:has(input:checked){border-color:var(--accent);transform:translateY(-2px)}
+.pal:has(input:focus-visible){box-shadow:0 0 0 3px var(--accent-soft)}
+
+/* ---------- PROGRAMMA ---------- */
+.prog-row{display:grid;grid-template-columns:112px 1fr 38px;gap:10px;margin-bottom:10px;align-items:start}
+.icon-btn{border:1px solid var(--line);background:#fff;color:var(--ink-soft);border-radius:var(--radius);height:43px;cursor:pointer;font-size:1.15rem;line-height:1;transition:border-color .2s,color .2s}
+.icon-btn:hover{border-color:var(--warn);color:var(--warn)}
+.add-btn{margin-top:6px;border:1px dashed var(--line);background:none;color:var(--ink-soft);font-family:inherit;font-size:.92rem;padding:10px 16px;border-radius:var(--radius);cursor:pointer;transition:border-color .2s,color .2s}
+.add-btn:hover{border-color:var(--accent);color:var(--ink)}
+
+/* ---------- OPZIONI A PAGAMENTO ---------- */
+.opt{position:relative;display:block;cursor:pointer;border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:18px 18px 18px 50px;margin-bottom:12px;transition:border-color .2s,background .2s}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt::before{content:"";position:absolute;left:18px;top:21px;width:15px;height:15px;border:1px solid #CDBFA8;border-radius:2px;transition:all .2s}
+.opt:has(input:checked)::before{background:var(--accent);border-color:var(--accent)}
+.opt::after{content:"";position:absolute;left:22.5px;top:25px;width:6px;height:10px;border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg) scale(0);transition:transform .18s cubic-bezier(.3,1.5,.5,1)}
+.opt:has(input:checked)::after{transform:rotate(45deg) scale(1)}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt:has(input:focus-visible){box-shadow:0 0 0 3px var(--accent-soft)}
+.opt.fixed{border-color:var(--ink);cursor:default;padding-left:18px}
+.opt.fixed::before,.opt.fixed::after{display:none}
+.opt-top{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.opt-name{font-family:'Cormorant Garamond',serif;font-size:1.32rem}
+.opt-price{font-size:.95rem;white-space:nowrap}
+.opt-desc{font-size:.9rem;color:var(--ink-soft);margin-top:4px;display:block}
+
+.reveal{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .3s ease,margin .45s ease}
+.reveal.open{max-height:1400px;opacity:1;margin-top:20px}
+
+/* ---------- RIEPILOGO ---------- */
+.recap{border:1px solid var(--accent);background:#fff;padding:26px 22px;border-radius:var(--radius);margin-top:34px}
+.recap h3{font-size:1.5rem;margin-bottom:16px}
+.recap ul{list-style:none}
+.recap li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px dotted var(--line);font-size:.96rem}
+.recap li span:last-child{white-space:nowrap;color:var(--ink-soft)}
+.recap .tot{border-bottom:0;padding-top:16px;font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--ink)}
+.recap .tot span:last-child{color:var(--ink)}
+.submit{width:100%;margin-top:22px;padding:17px 20px;cursor:pointer;font-family:'Jost',sans-serif;font-size:1rem;letter-spacing:.06em;font-weight:400;color:#fff;background:var(--ink);border:1px solid var(--ink);border-radius:var(--radius);transition:opacity .2s}
+.submit:hover{opacity:.87}
+.submit:disabled{opacity:.45;cursor:not-allowed}
+.after-submit{margin-top:14px;font-size:.88rem;color:var(--ink-soft);text-align:center}
+.hide{display:none !important}
+.msg{margin-top:18px;padding:15px 17px;border-radius:var(--radius);font-size:.94rem;display:none}
+.msg.show{display:block}
+.msg.bad{background:#F9ECE6;color:var(--warn);border:1px solid #E7CFC4}
+.msg.good{background:#EDF2EB;color:var(--ok);border:1px solid #D2DECD}
+.pay{display:none;margin-top:18px;padding:20px;border:1px solid var(--accent-soft);border-radius:var(--radius);background:var(--accent-soft);text-align:center}
+.pay.show{display:block}
+.pay h4{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:400;margin-bottom:10px}
+.pay .pay-btn{display:block;width:100%;padding:17px 20px;text-align:center;text-decoration:none;font-family:'Jost',sans-serif;font-size:1rem;letter-spacing:.06em;color:#fff;background:var(--accent);border:1px solid var(--accent);border-radius:var(--radius);transition:opacity .2s}
+.pay .pay-btn:hover{opacity:.87}
+.pay .pay-note{margin-top:12px;font-size:.84rem;color:var(--ink-soft)}
+
+/* ---------- BARRA PREZZO ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(251,248,242,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:13px 22px calc(13px + env(safe-area-inset-bottom,0px))}
+.bar-in{max-width:720px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bar-lab{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.bar-sub{font-size:.82rem;color:var(--ink-soft);margin-top:1px}
+.bar-tot{font-family:'Cormorant Garamond',serif;font-size:2.05rem;line-height:1;font-variant-numeric:tabular-nums}
+.bar-cta{background:var(--ink);color:#fff;border:0;border-radius:var(--radius);font-family:'Jost',sans-serif;font-size:.92rem;letter-spacing:.05em;padding:13px 20px;cursor:pointer;white-space:nowrap;transition:opacity .2s}
+.bar-cta:hover{opacity:.87}
+
+footer{border-top:1px solid var(--line);margin-top:20px;padding:34px 0 20px;text-align:center;font-size:.85rem;color:var(--ink-soft)}
+footer .mark{margin:0 0 14px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Invito digitale · Album condiviso</p>
+    <h1>Il vostro matrimonio,<br><em>raccontato da tutti</em></h1>
+    <span class="mark">✦</span>
+    <p class="lead">Una pagina con il vostro invito, il programma della giornata e un QR code che raccoglie le foto scattate dai vostri ospiti. Tutto in un posto solo, vostro.</p>
+    <p class="no-app">I vostri ospiti non installano nessuna app: inquadrano il QR e caricano.</p>
+    <p class="price-from">da 150 €<span>pronto in una settimana</span></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="cards" aria-label="Cosa ricevete">
+    <div class="card wide">
+      <h3>Niente da installare</h3>
+      <p>Gli ospiti inquadrano il QR con la fotocamera e si apre una pagina normale. Nessuna app da scaricare, nessun account da creare: caricano anche i vostri nonni.</p>
+    </div>
+    <div class="card">
+      <h3>L'invito</h3>
+      <p>Nomi, data, luoghi, programma della giornata e indicazioni stradali che si aprono nelle mappe con un tocco.</p>
+    </div>
+    <div class="card">
+      <h3>L'album del giorno</h3>
+      <p>Le foto degli ospiti arrivano tutte nello stesso posto. Le vedete comparire mentre la festa va avanti.</p>
+    </div>
+    <div class="card">
+      <h3>I cartoncini da stampare</h3>
+      <p>Il QR pronto in due formati, da tavolo e tascabile, in un file da portare in tipografia.</p>
+    </div>
+    <div class="card">
+      <h3>Solo vostro</h3>
+      <p>Caratteri, colori e testi scelti da voi, su un indirizzo vostro. Nessun marchio di altri sopra le vostre foto.</p>
+    </div>
+  </section>
+
+  <form id="form" novalidate>
+
+  <section class="sec" id="s1">
+    <div class="sec-head"><span class="sec-n">I</span><h2>I vostri dati</h2><span class="tag req">obbligatorio</span></div>
+    <p class="sec-note">Servono per costruire la pagina e per ricontattarvi durante la lavorazione.</p>
+    <div class="row two">
+      <div class="field"><label for="sposa">Nome della sposa</label><input type="text" id="sposa" placeholder="Giulia Ferrante"></div>
+      <div class="field"><label for="sposo">Nome dello sposo</label><input type="text" id="sposo" placeholder="Matteo Salvi"></div>
+    </div>
+    <div class="row two">
+      <div class="field"><label for="data">Data del matrimonio</label><input type="date" id="data"></div>
+      <div class="field"><label for="ora">Ora della cerimonia</label><input type="time" id="ora"></div>
+    </div>
+    <div class="row two">
+      <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="email"></div>
+      <div class="field"><label for="tel">Telefono</label><input type="tel" id="tel" autocomplete="tel"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="s2">
+    <div class="sec-head"><span class="sec-n">II</span><h2>I luoghi</h2><span class="tag req">obbligatorio</span></div>
+    <p class="sec-note">Da ogni indirizzo ricaviamo il pulsante che apre le mappe. Scrivetelo per esteso, con via e città.</p>
+    <div class="row two">
+      <div class="field"><label for="cer-nome">Cerimonia — nome del luogo</label><input type="text" id="cer-nome" placeholder="Chiesa di Santa Caterina"></div>
+      <div class="field"><label for="cer-ind">Cerimonia — indirizzo</label><input type="text" id="cer-ind" placeholder="Piazza del Borgo 4, Montelupo"></div>
+    </div>
+    <div class="row two">
+      <div class="field"><label for="ric-nome">Ricevimento — nome del luogo</label><input type="text" id="ric-nome" placeholder="Tenuta Le Ginestre"></div>
+      <div class="field"><label for="ric-ind">Ricevimento — indirizzo</label><input type="text" id="ric-ind" placeholder="Strada dei Tigli 18, Montelupo"></div>
+    </div>
+    <div class="field"><label for="terzo">Un terzo luogo, se serve (aperitivo, festa serale)</label><input type="text" id="terzo" placeholder="Nome e indirizzo"></div>
+  </section>
+
+  <section class="sec" id="s3">
+    <div class="sec-head"><span class="sec-n">III</span><h2>Il programma della giornata</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">È la parte che gli ospiti guardano di più. Anche tre righe bastano.</p>
+    <div id="prog"></div>
+    <button type="button" class="add-btn" id="add-prog">+ Aggiungi un momento</button>
+  </section>
+
+  <section class="sec" id="s4">
+    <div class="sec-head"><span class="sec-n">IV</span><h2>Lo stile</h2><span class="tag req">obbligatorio</span></div>
+    <p class="sec-note">Scegliete il template e i colori. Questa pagina cambia mentre scegliete, così vedete subito l'effetto.</p>
+    <div class="field">
+      <label>Template</label>
+      <div class="choices t" id="templates">
+        <label class="choice"><input type="radio" name="template" value="Romantico">
+          <span class="t-name">Romantico</span><span class="t-desc">Corsivi ampi, cornici sottili, molto spazio bianco.</span>
+          <span class="t-sample smp-romantico"><b>Giulia &amp; Matteo</b><i>12 giugno 2027</i></span></label>
+        <label class="choice"><input type="radio" name="template" value="Natura">
+          <span class="t-name">Natura</span><span class="t-desc">Foglie e rami disegnati, tono caldo e informale.</span>
+          <span class="t-sample smp-natura"><b>Giulia &amp; Matteo</b><i>12 giugno 2027</i></span></label>
+        <label class="choice"><input type="radio" name="template" value="Geometrico">
+          <span class="t-name">Geometrico</span><span class="t-desc">Linee nette, cornici ad arco, impaginazione decisa.</span>
+          <span class="t-sample smp-geometrico"><b>Giulia &amp; Matteo</b><i>12 giugno 2027</i></span></label>
+        <label class="choice"><input type="radio" name="template" value="Minimal">
+          <span class="t-name">Minimal</span><span class="t-desc">Solo tipografia, nessun ornamento, molto contemporaneo.</span>
+          <span class="t-sample smp-minimal"><b>Giulia &amp; Matteo</b><i>12 giugno 2027</i></span></label>
+      </div>
+      <p class="hint">L'esempio sotto ogni template è il carattere che userete per i nomi e i titoli. Scegliendone uno cambia anche questa pagina.</p>
+    </div>
+    <div class="field" style="margin-top:26px">
+      <label>Palette di colori</label>
+      <div class="palettes" id="palettes"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="s5">
+    <div class="sec-head"><span class="sec-n">V</span><h2>La musica</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">Una barra sottile in fondo all'invito, con il tasto play. Scegliete come volete suoni.</p>
+
+    <div class="field">
+      <label>Come volete la musica</label>
+      <div class="choices" id="musica-modo">
+        <label class="choice"><input type="radio" name="musica-modo" value="atmosfera" checked>
+          <span class="t-name">Una musica d'atmosfera scelta da noi</span>
+          <span class="t-desc">Parte da sola appena si apre l'invito e resta in sottofondo. Nessun logo, nessun riquadro: solo la barra.</span></label>
+        <label class="choice"><input type="radio" name="musica-modo" value="canzone">
+          <span class="t-name">La nostra canzone</span>
+          <span class="t-desc">Il brano a cui tenete, riprodotto da YouTube. Premendo play si apre il player sopra la barra.</span></label>
+        <label class="choice"><input type="radio" name="musica-modo" value="nessuna">
+          <span class="t-name">Nessuna musica</span>
+          <span class="t-desc">Invito silenzioso.</span></label>
+      </div>
+    </div>
+
+    <div class="field" id="blocco-atmosfera" style="margin-top:22px">
+      <label>Che atmosfera</label>
+      <div class="choices t" id="musica-atm">
+        <label class="choice"><input type="radio" name="musica-atm" value="Pianoforte intimo">
+          <span class="t-name">Pianoforte intimo</span><span class="t-desc">Raccolto e delicato, poche note.</span></label>
+        <label class="choice"><input type="radio" name="musica-atm" value="Archi cinematografici">
+          <span class="t-name">Archi cinematografici</span><span class="t-desc">Ampio ed emozionante, da titoli di coda.</span></label>
+        <label class="choice"><input type="radio" name="musica-atm" value="Chitarra acustica">
+          <span class="t-name">Chitarra acustica</span><span class="t-desc">Caldo e informale, luce del pomeriggio.</span></label>
+        <label class="choice"><input type="radio" name="musica-atm" value="Jazz leggero">
+          <span class="t-name">Jazz leggero</span><span class="t-desc">Spazzole e contrabbasso, tono elegante.</span></label>
+        <label class="choice"><input type="radio" name="musica-atm" value="Allegro e luminoso">
+          <span class="t-name">Allegro e luminoso</span><span class="t-desc">Ritmo vivo, buonumore dal primo secondo.</span></label>
+        <label class="choice"><input type="radio" name="musica-atm" value="Scegliete voi">
+          <span class="t-name">Scegliete voi</span><span class="t-desc">Ci fidiamo: abbinatela allo stile dell'invito.</span></label>
+      </div>
+      <p class="hint">Sono brani con licenza libera, quindi nessun problema di diritti e nessuna scritta sul vostro invito. Vi mandiamo l'anteprima prima di pubblicare.</p>
+    </div>
+
+    <div class="field hide" id="blocco-canzone" style="margin-top:22px">
+      <label for="musica-link">Link YouTube del brano</label>
+      <input type="text" id="musica-link" placeholder="https://www.youtube.com/watch?v=...">
+      <p class="hint">Usate il video del canale ufficiale dell'artista o dell'etichetta. La musica resta su YouTube, che ha gi&agrave; i diritti: cos&igrave; potete scegliere la canzone che volete senza problemi di copyright.</p>
+      <div style="margin-top:14px">
+        <label for="musica-tit">Come scriverlo nella barra</label>
+        <input type="text" id="musica-tit" placeholder="Titolo &mdash; Artista">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s6">
+    <div class="sec-head"><span class="sec-n">VI</span><h2>Le vostre foto</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">Non caricatele qui. Dopo la conferma dell'ordine ricevete un link dedicato dove trascinarle tutte insieme: serve una foto di copertina e da tre a sei per la galleria di apertura.</p>
+    <label class="opt">
+      <input type="checkbox" data-extra="spazio" id="x-spazio">
+      <span class="opt-top"><span class="opt-name">Spazio foto ampliato</span><span class="opt-price">+ 50 €</span></span>
+      <span class="opt-desc">L'album di base regge circa mille foto. Con lo spazio ampliato salite a diverse migliaia e si possono caricare anche i video. Consigliato sopra i cento invitati.</span>
+    </label>
+  </section>
+
+  <section class="sec" id="s7">
+    <div class="sec-head"><span class="sec-n">VII</span><h2>I testi</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">Scriveteli come vi vengono. Li sistemiamo noi e ve li facciamo rileggere prima di pubblicare.</p>
+    <div class="field"><label for="benvenuto">La frase di benvenuto</label><textarea id="benvenuto" placeholder="Poche righe per aprire la pagina"></textarea></div>
+    <div class="field"><label for="storia">La vostra storia</label><textarea id="storia" placeholder="Come vi siete conosciuti, la proposta… se volete raccontarla"></textarea></div>
+    <div class="field"><label for="invito-foto">Il messaggio che invita a caricare le foto</label><textarea id="invito-foto" placeholder="Lasciatelo vuoto se preferite il nostro"></textarea></div>
+  </section>
+
+  <section class="sec" id="s8">
+    <div class="sec-head"><span class="sec-n">VIII</span><h2>Le informazioni pratiche</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">Tutto quello che gli ospiti chiederebbero al telefono.</p>
+    <div class="row two">
+      <div class="field"><label for="dress">Dress code</label><input type="text" id="dress" placeholder="Elegante, niente bianco"></div>
+      <div class="field"><label for="parcheggio">Parcheggio</label><input type="text" id="parcheggio" placeholder="Interno alla tenuta, gratuito"></div>
+    </div>
+    <div class="field"><label for="hotel">Hotel consigliati</label><textarea id="hotel" placeholder="Nome, città, eventuale convenzione"></textarea></div>
+    <div class="field"><label for="navette">Navette e trasporti</label><input type="text" id="navette" placeholder="Partenza dall'hotel alle 15:00"></div>
+    <div class="field"><label for="note">Altre note</label><textarea id="note"></textarea></div>
+  </section>
+
+  <section class="sec" id="s9">
+    <div class="sec-head"><span class="sec-n">IX</span><h2>La conferma di presenza</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">Gli ospiti confermano dalla pagina e voi ricevete la lista aggiornata a ogni risposta.</p>
+    <label class="opt">
+      <input type="checkbox" data-extra="invitati" id="x-invitati">
+      <span class="opt-top"><span class="opt-name">Gestione invitati</span><span class="opt-price">+ 50 €</span></span>
+      <span class="opt-desc">Modulo di conferma sulla pagina, notifica a ogni iscrizione e un foglio scaricabile sempre aggiornato con nomi, accompagnatori e intolleranze.</span>
+    </label>
+    <div class="reveal" id="rev-invitati">
+      <div class="field"><label>Cosa chiediamo agli ospiti oltre al nome</label>
+        <div class="choices">
+          <label class="choice check"><input type="checkbox" id="q-intolleranze" checked><span class="t-name" style="font-size:1.05rem">Intolleranze e allergie</span></label>
+          <label class="choice check"><input type="checkbox" id="q-accomp" checked><span class="t-name" style="font-size:1.05rem">Numero di accompagnatori</span></label>
+          <label class="choice check"><input type="checkbox" id="q-bimbi"><span class="t-name" style="font-size:1.05rem">Bambini e seggioloni</span></label>
+          <label class="choice check"><input type="checkbox" id="q-navetta"><span class="t-name" style="font-size:1.05rem">Serve la navetta</span></label>
+        </div>
+      </div>
+      <div class="field"><label for="rsvp-data">Entro quando devono rispondere</label><input type="date" id="rsvp-data"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="s10">
+    <div class="sec-head"><span class="sec-n">X</span><h2>La lista nozze</h2><span class="tag">facoltativo</span></div>
+    <p class="sec-note">Compare in fondo alla pagina, con discrezione.</p>
+    <div class="field"><label for="lista-testo">Come volete presentarla</label><textarea id="lista-testo" placeholder="Il vostro pensiero è già il regalo più bello…"></textarea></div>
+    <div class="field"><label for="lista-dati">IBAN o link alla lista</label><input type="text" id="lista-dati" placeholder="IT00…  oppure il link dell'agenzia"></div>
+  </section>
+
+  <section class="sec" id="s11">
+    <div class="sec-head"><span class="sec-n">XI</span><h2>Il vostro pacchetto</h2></div>
+    <p class="sec-note">Il pacchetto base comprende l'invito, l'album con QR e i cartoncini da stampare. Da qui aggiungete quello che vi serve.</p>
+
+    <span class="opt fixed">
+      <span class="opt-top"><span class="opt-name">Pacchetto base</span><span class="opt-price">150 €</span></span>
+      <span class="opt-desc">Invito digitale, album fotografico con QR code, file dei cartoncini da stampare, indirizzo online incluso per un anno. Sempre compreso.</span>
+    </span>
+
+    <label class="opt">
+      <input type="checkbox" data-extra="dominio" id="x-dominio">
+      <span class="opt-top"><span class="opt-name">Indirizzo personalizzato</span><span class="opt-price">+ 25 €</span></span>
+      <span class="opt-desc">Un dominio tutto vostro, tipo giuliaematteo.it, invece dell'indirizzo standard. Registrazione e primo anno compresi.</span>
+    </label>
+
+    <label class="opt">
+      <input type="checkbox" data-extra="urgenza" id="x-urgenza">
+      <span class="opt-top"><span class="opt-name">Consegna in due giorni</span><span class="opt-price">+ 50 €</span></span>
+      <span class="opt-desc">La consegna normale è di una settimana da quando riceviamo foto e testi. Con questa opzione la pagina è online in due giorni lavorativi.</span>
+    </label>
+
+    <label class="opt">
+      <input type="checkbox" data-extra="collage" id="x-collage">
+      <span class="opt-top"><span class="opt-name">Video ricordo</span><span class="opt-price">+ 15 €</span></span>
+      <span class="opt-desc">Dopo il matrimonio montiamo le foto caricate dagli ospiti in un breve video da condividere. Scegliete voi quali tenere.</span>
+    </label>
+
+    <div class="recap">
+      <h3>Riepilogo</h3>
+      <ul id="recap-list"></ul>
+      <button type="submit" class="submit" id="send">Invia la richiesta</button>
+      <p class="after-submit" id="after-submit">Ricontrolliamo tutto insieme prima di partire. Potete pagare subito qui sotto oppure con il link che vi arriva per mail.</p>
+      <div class="msg" id="msg"></div>
+      <div class="pay" id="pay">
+        <h4>Pagamento</h4>
+        <a class="pay-btn" id="pay-btn" href="#" target="_blank" rel="noopener">Paga <span id="pay-tot">150</span> € con carta</a>
+        <p class="pay-note">Pagamento sicuro su Stripe. Si apre in una nuova scheda.</p>
+      </div>
+    </div>
+  </section>
+
+  </form>
+</main>
+
+<section class="sec" id="altro-evento" style="max-width:720px;margin:0 auto 40px;padding-left:20px;padding-right:20px">
+  <div class="sec-head"><h2>Non è un matrimonio?</h2></div>
+  <p class="sec-note">Diciottesimi, battesimi, comunioni, compleanni: l'invito digitale e l'album con il QR funzionano allo stesso modo. Ogni tipo di festa ha però sezioni e stile suoi, quindi li costruiamo su richiesta. Raccontateci cosa avete in mente.</p>
+  <div class="field">
+    <label for="ae-tipo">Che festa è</label>
+    <select id="ae-tipo">
+      <option value="">Scegliete</option>
+      <option>Diciottesimo</option>
+      <option>Battesimo</option>
+      <option>Prima comunione</option>
+      <option>Cresima</option>
+      <option>Compleanno</option>
+      <option>Laurea</option>
+      <option>Anniversario</option>
+      <option>Altro</option>
+    </select>
+  </div>
+  <div class="field" style="margin-top:14px">
+    <label for="ae-data">Quando</label>
+    <input type="date" id="ae-data">
+  </div>
+  <div class="field" style="margin-top:14px">
+    <label for="ae-nome">Nome e contatto</label>
+    <input type="text" id="ae-nome" placeholder="Nome, email o telefono">
+  </div>
+  <div class="field" style="margin-top:14px">
+    <label for="ae-note">Cosa vi serve</label>
+    <textarea id="ae-note" rows="3" placeholder="Quanti invitati, cosa vorreste nell'invito, qualsiasi cosa vi venga in mente"></textarea>
+  </div>
+  <button type="button" class="submit" id="ae-send">Mandate la richiesta</button>
+  <div class="msg" id="ae-msg"></div>
+</section>
+
+<footer>
+  <span class="mark">✦</span>
+  <p>Scriveteci per qualsiasi dubbio prima di ordinare.</p>
+  <p style="margin-top:6px"><a id="mail-link" href="#">Manda una mail</a></p>
+</footer>
+
+<div class="bar">
+  <div class="bar-in">
+    <div>
+      <div class="bar-lab">Totale</div>
+      <div class="bar-sub" id="bar-sub">Pacchetto base</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="bar-tot"><span id="tot">150</span> €</div>
+      <button class="bar-cta" type="button" id="bar-cta">Riepilogo</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURAZIONE — modifica solo questo blocco
+   ============================================================ */
+const EMAIL_ORDINI = 'neuramente.ai@gmail.com';   // dove arrivano le richieste
+
+// Payment Link di Stripe. Deve puntare a un prodotto da 1,00 €
+// con "quantità modificabile" attiva: l'importo è passato come quantity.
+// Lascia vuoto per non mostrare il bottone di pagamento.
+const STRIPE_LINK = '';
+
+const PREZZI = {
+  base:     { nome:'Pacchetto base',           prezzo:150 },
+  spazio:   { nome:'Spazio foto ampliato',     prezzo:50  },
+  dominio:  { nome:'Indirizzo personalizzato', prezzo:25  },
+  invitati: { nome:'Gestione invitati',        prezzo:50  },
+  urgenza:  { nome:'Consegna in due giorni',   prezzo:50  },
+  collage:  { nome:'Video ricordo',            prezzo:15  }
+};
+
+// Opzionale: salvataggio automatico su Supabase.
+// Lascia i campi vuoti per far partire solo la mail.
+const SUPABASE_URL = '';
+const SUPABASE_KEY = '';
+const SUPABASE_TAB = 'richieste';
+/* ============================================================ */
+
+const PALETTE = [
+  { nome:'Avorio e oro',   colori:['#FBF8F2','#E6DDCC','#B89355'], accent:'#B89355', soft:'#F3EADA' },
+  { nome:'Salvia e crema', colori:['#F4F3EC','#D8DFD0','#8A9A7B'], accent:'#7E8F6F', soft:'#EAEFE4' },
+  { nome:'Terracotta',     colori:['#FAF3EE','#EBD5C7','#C0714E'], accent:'#B36746', soft:'#F6E5DA' },
+  { nome:'Blu notte',      colori:['#F3F5F8','#CCD6E2','#2E4057'], accent:'#3A5170', soft:'#E4EAF2' },
+  { nome:'Rosa antico',    colori:['#FBF4F3','#EBD3D2','#C08787'], accent:'#B87C7C', soft:'#F6E5E4' },
+  { nome:'Bianco e nero',  colori:['#FAFAF8','#DDDDD8','#3A3A3A'], accent:'#4A4A4A', soft:'#EAEAE6' }
+];
+
+
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- template: cambia il carattere dei titoli ---------- */
+$('#templates').addEventListener('change', e=>{
+  if(e.target.name !== 'template') return;
+  document.body.dataset.tpl = e.target.value;
+});
+
+/* ---------- palette ---------- */
+const palBox = $('#palettes');
+PALETTE.forEach((p,i)=>{
+  const l = document.createElement('label');
+  l.className = 'pal';
+  l.innerHTML = `<input type="radio" name="palette" value="${esc(p.nome)}" data-i="${i}">
+    <span class="dots">${p.colori.map(c=>`<i style="background:${c}"></i>`).join('')}</span>
+    <span class="p-name">${esc(p.nome)}</span>`;
+  palBox.appendChild(l);
+});
+palBox.addEventListener('change', e=>{
+  const p = PALETTE[e.target.dataset.i];
+  if(!p) return;
+  document.documentElement.style.setProperty('--accent', p.accent);
+  document.documentElement.style.setProperty('--accent-soft', p.soft);
+});
+
+/* ---------- musica ---------- */
+document.querySelectorAll('input[name="musica-modo"]').forEach(i=>{
+  i.addEventListener('change', ()=>{
+    const m = radio('musica-modo');
+    $('#blocco-atmosfera').classList.toggle('hide', m !== 'atmosfera');
+    $('#blocco-canzone').classList.toggle('hide', m !== 'canzone');
+  });
+});
+
+/* ---------- programma ---------- */
+const prog = $('#prog');
+function addRow(ora='', testo=''){
+  const d = document.createElement('div');
+  d.className = 'prog-row';
+  d.innerHTML = `<input type="time" value="${esc(ora)}" aria-label="Orario">
+                 <input type="text" value="${esc(testo)}" placeholder="Cosa succede" aria-label="Descrizione">
+                 <button type="button" class="icon-btn" aria-label="Togli questa riga">×</button>`;
+  d.querySelector('button').onclick = ()=> d.remove();
+  prog.appendChild(d);
+}
+addRow('15:30','Cerimonia');
+addRow('17:00','Aperitivo in giardino');
+addRow('20:00','Taglio della torta');
+$('#add-prog').onclick = ()=> addRow();
+
+/* ---------- prezzo ---------- */
+let mostrato = 150;
+function attivi(){
+  const list = [PREZZI.base];
+  $$('input[data-extra]').forEach(i=>{ if(i.checked) list.push(PREZZI[i.dataset.extra]); });
+  return list;
+}
+const totale = () => attivi().reduce((s,v)=>s+v.prezzo,0);
+
+function animaTotale(a,b){
+  const el = $('#tot');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || a===b){
+    el.textContent = b; mostrato = b; return;
+  }
+  const t0 = performance.now(), dur = 420;
+  (function step(t){
+    const k = Math.min((t-t0)/dur,1);
+    const e = 1-Math.pow(1-k,3);
+    el.textContent = Math.round(a+(b-a)*e);
+    if(k<1) requestAnimationFrame(step); else mostrato = b;
+  })(performance.now());
+}
+
+function aggiorna(){
+  const list = attivi(), tot = totale();
+  animaTotale(mostrato, tot);
+  const n = list.length-1;
+  $('#bar-sub').textContent = n===0 ? 'Pacchetto base' : n===1 ? 'Base + 1 opzione' : 'Base + '+n+' opzioni';
+  $('#recap-list').innerHTML =
+    list.map(v=>`<li><span>${esc(v.nome)}</span><span>${v.prezzo} €</span></li>`).join('') +
+    `<li class="tot"><span>Totale</span><span>${tot} €</span></li>`;
+  $('#rev-invitati').classList.toggle('open', $('#x-invitati').checked);
+}
+$$('input[data-extra]').forEach(i=> i.addEventListener('change', aggiorna));
+aggiorna();
+
+$('#bar-cta').onclick = ()=> $('#s11').scrollIntoView({behavior:'smooth'});
+
+/* ---------- raccolta dati ---------- */
+const val = id => { const e=$(id); return e ? e.value.trim() : ''; };
+const radio = n => { const e=document.querySelector(`input[name="${n}"]:checked`); return e?e.value:''; };
+
+const programma = () => $$('#prog .prog-row').map(r=>{
+  const [o,t] = r.querySelectorAll('input');
+  return (o.value||t.value) ? `${o.value} ${t.value}`.trim() : '';
+}).filter(Boolean);
+
+function dati(){
+  return {
+    sposa: val('#sposa'), sposo: val('#sposo'),
+    data: val('#data'), ora: val('#ora'),
+    email: val('#email'), telefono: val('#tel'),
+    cerimonia: [val('#cer-nome'), val('#cer-ind')].filter(Boolean).join(' — '),
+    ricevimento: [val('#ric-nome'), val('#ric-ind')].filter(Boolean).join(' — '),
+    terzo_luogo: val('#terzo'),
+    programma: programma(),
+    template: radio('template'), palette: radio('palette'),
+    musicaModo: radio('musica-modo'),
+    musicaAtm: radio('musica-atm'),
+    musicaLink: val('#musica-link'),
+    musicaTit: val('#musica-tit'),
+    benvenuto: val('#benvenuto'), storia: val('#storia'), invito_foto: val('#invito-foto'),
+    dress_code: val('#dress'), parcheggio: val('#parcheggio'),
+    hotel: val('#hotel'), navette: val('#navette'), note: val('#note'),
+    rsvp: $('#x-invitati').checked ? {
+      entro: val('#rsvp-data'),
+      chiedere: [
+        $('#q-intolleranze').checked && 'intolleranze',
+        $('#q-accomp').checked && 'accompagnatori',
+        $('#q-bimbi').checked && 'bambini',
+        $('#q-navetta').checked && 'navetta'
+      ].filter(Boolean)
+    } : null,
+    lista_nozze: val('#lista-testo'), lista_dati: val('#lista-dati'),
+    voci: attivi().map(v=>v.nome),
+    totale: totale()
+  };
+}
+
+function testo(d){
+  const r = [];
+  r.push(`RICHIESTA SITO MATRIMONIO — ${d.totale} €`);
+  r.push(`Voci: ${d.voci.join(', ')}`);
+  r.push('');
+  r.push(`Sposi: ${d.sposa} e ${d.sposo}`);
+  r.push(`Data: ${d.data}  ore ${d.ora}`);
+  r.push(`Contatti: ${d.email} · ${d.telefono}`);
+  r.push('');
+  r.push(`Cerimonia: ${d.cerimonia}`);
+  r.push(`Ricevimento: ${d.ricevimento}`);
+  if(d.terzo_luogo) r.push(`Altro luogo: ${d.terzo_luogo}`);
+  if(d.programma.length){ r.push(''); r.push('Programma:'); d.programma.forEach(p=>r.push('  '+p)); }
+  r.push('');
+  r.push(`Template: ${d.template}   Palette: ${d.palette}`);
+  if(d.musicaModo === 'atmosfera') r.push(`Musica: atmosfera — ${d.musicaAtm || 'da concordare'}`);
+  else if(d.musicaModo === 'canzone') r.push(`Musica: ${d.musicaTit || 'brano scelto'} — ${d.musicaLink || 'link da inviare'}`);
+  else if(d.musicaModo === 'nessuna') r.push('Musica: nessuna');
+  const opz = [['Benvenuto',d.benvenuto],['Storia',d.storia],['Invito foto',d.invito_foto],
+               ['Dress code',d.dress_code],['Parcheggio',d.parcheggio],['Hotel',d.hotel],
+               ['Navette',d.navette],['Note',d.note],['Lista nozze',d.lista_nozze],['IBAN/link',d.lista_dati]];
+  const pieni = opz.filter(([,v])=>v);
+  if(pieni.length){ r.push(''); pieni.forEach(([k,v])=>r.push(`${k}: ${v}`)); }
+  if(d.rsvp){ r.push(''); r.push(`Conferme entro: ${d.rsvp.entro||'da definire'}`);
+              r.push(`Da chiedere: ${d.rsvp.chiedere.join(', ')}`); }
+  return r.join('\n');
+}
+
+/* ---------- invio ---------- */
+const OBBLIGATORI = ['#sposa','#sposo','#data','#email','#tel','#cer-ind','#ric-ind'];
+
+function mostra(t, ok){
+  const m = $('#msg');
+  m.textContent = t;
+  m.className = 'msg show ' + (ok ? 'good' : 'bad');
+}
+
+/* costruisce il link Stripe con il totale del configuratore */
+function mostraPagamento(d){
+  if(!STRIPE_LINK) return;
+  const rif = (d.sposa + '-' + d.sposo + '-' + d.data)
+                .toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,60);
+  const u = new URL(STRIPE_LINK);
+  u.searchParams.set('quantity', d.totale);
+  if(d.email) u.searchParams.set('prefilled_email', d.email);
+  u.searchParams.set('client_reference_id', rif);
+  $('#pay-btn').href = u.toString();
+  $('#pay-tot').textContent = d.totale;
+  $('#pay').classList.add('show');
+  $('#pay').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+$('#form').addEventListener('submit', async e=>{
+  e.preventDefault();
+  $$('.err').forEach(x=>x.classList.remove('err'));
+
+  const vuoti = OBBLIGATORI.filter(s=>!val(s));
+  const stileMancante = !radio('template') || !radio('palette');
+
+  if(vuoti.length || stileMancante){
+    vuoti.forEach(s=>{ const el=$(s); if(el) el.classList.add('err'); });
+    const primo = vuoti.length ? $(vuoti[0]) : $('#s4');
+    if(primo) primo.scrollIntoView({behavior:'smooth', block:'center'});
+    mostra('Mancano ancora alcune informazioni: nomi, data, contatti, indirizzi, template e palette.', false);
+    return;
+  }
+
+  const btn = $('#send');
+  btn.disabled = true; btn.textContent = 'Invio in corso…';
+  const d = dati();
+
+  if(SUPABASE_URL && SUPABASE_KEY){
+    try{
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TAB}`, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json', apikey:SUPABASE_KEY,
+                  Authorization:'Bearer '+SUPABASE_KEY, Prefer:'return=minimal' },
+        body: JSON.stringify({ email:d.email, totale:d.totale, dati:d })
+      });
+      if(!res.ok) throw new Error(res.status);
+      btn.textContent = 'Richiesta inviata';
+      mostra('Richiesta ricevuta. Potete completare il pagamento qui sotto: vi rispondiamo comunque entro 24 ore.', true);
+      mostraPagamento(d);
+      return;
+    }catch(err){ /* se fallisce si prosegue con la mail */ }
+  }
+
+  const corpo = testo(d);
+  const oggetto = 'Richiesta sito matrimonio — ' + d.sposa + ' e ' + d.sposo;
+  try{ await navigator.clipboard.writeText(corpo); }catch(err){}
+  window.location.href = `mailto:${EMAIL_ORDINI}?subject=${encodeURIComponent(oggetto)}&body=${encodeURIComponent(corpo)}`;
+  btn.disabled = false; btn.textContent = 'Invia la richiesta';
+  mostra('Si apre il programma di posta con tutto già scritto: basta premere invia. Il riepilogo è anche negli appunti, se preferite incollarlo altrove.', true);
+  mostraPagamento(d);
+});
+
+/* ---------- richiesta altro evento ---------- */
+$('#ae-send').addEventListener('click', ()=>{
+  const tipo = $('#ae-tipo').value;
+  const nome = $('#ae-nome').value.trim();
+  const m = $('#ae-msg');
+  if(!tipo || !nome){
+    m.textContent = 'Servono almeno il tipo di festa e un contatto.';
+    m.className = 'msg show bad';
+    return;
+  }
+  const corpo = [
+    'Tipo di evento: ' + tipo,
+    'Data: ' + ($('#ae-data').value || 'da definire'),
+    'Contatto: ' + nome,
+    'Note: ' + ($('#ae-note').value.trim() || '-')
+  ].join('\n');
+  window.location.href = `mailto:${EMAIL_ORDINI}?subject=${encodeURIComponent('Richiesta — ' + tipo)}&body=${encodeURIComponent(corpo)}`;
+  m.textContent = 'Si apre il programma di posta con la richiesta già scritta: basta premere invia. Vi rispondiamo entro 24 ore con una proposta.';
+  m.className = 'msg show good';
+});
+
+$('#mail-link').href = 'mailto:' + EMAIL_ORDINI;
+</script>
+</body>
+</html>
